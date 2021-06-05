@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Social Book!</title>
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  </head>
+  <body style="background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 70%,#285AEB 100%);  padding: 7.69rem; ">
+    
+    <h1 style="text-align: center; font-size: 50px; font-style: italic; font-weight: bold; font-family: cursive; position: absolute; right: 200px; color: black;">Social HUB</h1><br><br>
+   
+  <section class="section">
+    <div  class="container">
+     
+<div class="columns is-mobile has-text-centered">
+  <div class="column is-half">
+   
+
+    <div style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%); " class="card">
+    <div class="card-content">
+
+          <form method="post" action="" role="form">
+          {% csrf_token %}
+           <h3 class="title is-3">Login</h3>
+
+            <div class="field">
+              <p class="control has-icons-left">
+              <label class="label is-medium">Username</label>
+                {{ form.username }}
+                <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+          </div>
+
+              <div class="field">
+              <p class="control has-icons-left">
+              <label class="label is-medium">Password</label>
+                {{ form.password }}
+                <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+          </div>
+
+      {% if form.errors %}
+      <div class="row">
+        <div class="col s12">
+          <span style="color: red; font-weight: bold;">Your username or password did not match.</span>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="field">
+      <p class="control">
+        <button type="submit" value="login" class="button is-success">
+          Login
+        </button>
+      </p>
+    </div>
+
+    <input type="hidden" name="next" value="{{ next }}">
+
+
+
+    <a href="{% url 'signup' %}" class="button is-info">Create an account</a>
+
+
+  </form>
+
+
+
+
+    </div>
+    </div>
+    
+
+
+  </div>
+</div>
+
+
+    </div>
+  </section>
+
+  </body>
+</html>
+
